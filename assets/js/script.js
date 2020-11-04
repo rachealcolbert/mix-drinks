@@ -104,8 +104,12 @@ function showDrinks() {
   }
 }
 
-function find() {
-  yelpSearch = searchIngredientEl.innerHTML
+
+
+
+function find(searchIngredientEl) {
+  yelpSearch = searchIngredientEl.value
+  getStore()
 
 
 }
