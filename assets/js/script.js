@@ -11,11 +11,14 @@ var drinks = [];
 var glass = document.createElement('img');
 var glassEl = document.querySelector('#glass');
 var lists = document.querySelector('#list');
+var drinkEl = document.querySelector('#drink')
+var liquorEl = document.querySelector('#liquor')
 //var history = JSON.parse(localStorage.getItem('history')) || [];
 // THis is search by liquor give other drinks
 // NO PAT ZONE!!!!!!!!!!!!!!!!!!  ****NOTE**still need to link the 2 other pages*!!
 // PAT Im Serious
 function getdrink() {
+  liquor = liquorEl.value;
   fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + liquor)
     .then(function (response) {
       return response.json();
@@ -23,6 +26,7 @@ function getdrink() {
     .then(function (json) {
       drinks = json
       console.log(json);
+
       showDrinks()
     })
 }
@@ -103,15 +107,20 @@ function showDrinks() {
     lists.appendChild(drinkEl);
   }
 }
+function findLiquor(liquorEl) {
+  liquor = liquorEl.value;
 
-
+  getdrink()
+}
+function findDrink(drinkEl) {
+  drink = drinkEl.value;
+  getRecipe()
+}
 
 
 function find(searchIngredientEl) {
-  yelpSearch = searchIngredientEl.value
+  yelpSearch = searchIngredientEl.value;
   getStore()
-
-
 }
 
 
