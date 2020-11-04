@@ -98,6 +98,7 @@ function showRecipe() {
 }
 
 function showDrinks() {
+  lists.innerHTML = " "
   for (let i = 0; i < drinks.drinks.length; i++) {
     var drinkEl = document.createElement('li');
     drinkEl.setAttribute('class', "drinks");
