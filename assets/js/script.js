@@ -4,12 +4,13 @@
 // will have to update VAR
 var drink = 'screwdriver' //TEMP VAR!!
 var liquor = 'rum'        //TEMP VAR!!
-var yelpSearch = ''
+var searchIngredientEl = document.querySelector('#searchIngredient');
+var yelpSearch = '';
 var recipe = [];
 var drinks = [];
 var glass = document.createElement('img');
-var glassEl = document.querySelector('#glass')
-var lists = document.querySelector('#list')
+var glassEl = document.querySelector('#glass');
+var lists = document.querySelector('#list');
 //var history = JSON.parse(localStorage.getItem('history')) || [];
 // THis is search by liquor give other drinks
 // NO PAT ZONE!!!!!!!!!!!!!!!!!!  ****NOTE**still need to link the 2 other pages*!!
@@ -46,6 +47,7 @@ Will also need localStocage to paste to past searches
 // Pat Paggi
 //this is the search for recipe by name of drink
 function getRecipe() {
+
   fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + drink)
     .then(function (response) {
       return response.json();
@@ -62,7 +64,7 @@ var recipeUl = document.querySelector('#recipe')
 // THis is the recipe!! done until getDrinks is up
 function showRecipe() {
   //still working on local storage!!!
-
+  recipeUl.innerHTML = " "
   //history.push(JSON.stringify(recipe))
   //localStorage.setItem('history', JSON.stringify(history))
 
@@ -72,8 +74,8 @@ function showRecipe() {
   // Still need to link to Recipe.Html
   recipeUl.innerHTML = recipe.drinks[0].strDrink
   var direction = document.createElement('li');
-  direction.innerHTML = recipe.drinks[0].strInstructions
-  recipeUl.appendChild(direction)
+  direction.innerHTML = recipe.drinks[0].strInstructions;
+  recipeUl.appendChild(direction);
   for (let i = 0; i < ingredients.length; i++) {
     if (ingredients[i] !== null) {
       var recipeEl = document.createElement('li');
@@ -94,13 +96,24 @@ function showRecipe() {
 function showDrinks() {
   for (let i = 0; i < drinks.drinks.length; i++) {
     var drinkEl = document.createElement('li');
-    drinkEl.setAttribute('class', "?");
-    drinkEl.setAttribute('Onclick', 'getRecipe()');
+    drinkEl.setAttribute('class', "drinks");
+    drinkEl.setAttribute('Onclick', 'search(this)');
     drinkEl.setAttribute('value', drinks.drinks[i].strDrink);
     drinkEl.innerText = drinks.drinks[i].strDrink;
     lists.appendChild(drinkEl);
   }
 }
 
+function find() {
+  yelpSearch = searchIngredientEl.innerHTML
+
+
+}
+
+
+var search = function (value) {
+  drink = value.textContent;
+  getRecipe()
+}
 
 //STILL NEED TO WORK ON YELP !!!!
