@@ -13,14 +13,7 @@
 <body>
     <!-- header text links to home page -->
     <header>
-        <ul>
-            <!-- This only so I can test -->
-            <il> <a href="html/recipe.html">Recipe</a> </il>
-            <il> <a href="html/yelp.html">Directions</a></il>
-        </ul>
         <h1 href="#">Make Me A Drink!</h1>
-
-
     </header>
     <!-- drink search form by drink name and by liquor-->
     <div class="grid">
@@ -64,6 +57,27 @@
                 <img class="cell 3" src="https://www.thecocktaildb.com/images/media/drink/qywpvt1454512546.jpg/preview">
                 <!--wine-->
                 <img class="cell 3" src="https://www.thecocktaildb.com/images/media/drink/4g6xds1582579703.jpg/preview">
+            </div>
+        </div>
+        <div class="grid">
+            <div class="row">
+                <div class="cell">
+                    <h2>Recipe</h2>
+                    <ul id="recipe"></ul>
+                    <div id='glass'></div>
+                </div>
+                <div class="cell">
+                    <input id="liquor" placeholder="Type of liquor" modifier="underbar" style="width: 300px;"></input>
+                    <button onclick="findLiquor('#liquor')">Drinks</button>
+
+                    <ul id="list"></ul>
+                </div>
+                <div class="cell">
+                    <!-- This search is for Yelp-->
+                    <input id="searchIngredient" placeholder="Search Ingredient">
+                    </input>
+                    <button onclick="find('#searchIngredient')"></button>
+                </div>
             </div>
         </div>
 
